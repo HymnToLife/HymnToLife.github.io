@@ -9,17 +9,17 @@
   
   
   
-  <meta name="description" content="问题的起因最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。  资料的收集查阅了一下官方的文档，发现一个叫ssh2的函数比较适合  Bindings to the">
+  <meta name="description" content="问题的起因最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php+sftp实现文件的操作">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/php-sftp实现文件的操作/index.html">
 <meta property="og:site_name" content="HymnToLife&#39;s Home">
-<meta property="og:description" content="问题的起因最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。  资料的收集查阅了一下官方的文档，发现一个叫ssh2的函数比较适合  Bindings to the">
+<meta property="og:description" content="问题的起因最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-14T03:51:17.567Z">
+<meta property="og:updated_time" content="2019-05-17T03:47:55.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php+sftp实现文件的操作">
-<meta name="twitter:description" content="问题的起因最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。  资料的收集查阅了一下官方的文档，发现一个叫ssh2的函数比较适合  Bindings to the">
+<meta name="twitter:description" content="问题的起因最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。">
   
     <link rel="alternate" href="/atom.xml" title="HymnToLife&#39;s Home" type="application/atom+xml">
   
@@ -158,6 +158,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="问题的起因"><a href="#问题的起因" class="headerlink" title="问题的起因"></a>问题的起因</h2><p>最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。</p>
+<a id="more"></a>
+
 <hr>
 <h2 id="资料的收集"><a href="#资料的收集" class="headerlink" title="资料的收集"></a>资料的收集</h2><p>查阅了一下官方的文档，发现一个叫ssh2的函数比较适合</p>
 <blockquote>
@@ -255,106 +257,6 @@
 
       
     </div>
-    <!-- <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="问题的起因"><a href="#问题的起因" class="headerlink" title="问题的起因"></a>问题的起因</h2><p>最近做了一个简单的小项目，类似简书那种网页端写博客，提交后自动生成并跳转至一份适配手机端的网页。现在测试阶段公司希望我能将用户上传的图片文件保存在内部的服务器上。我的后端使用php写的，公司的服务器使用ssh连接，思考了一下发现使用php+sftp的形式比较方便，于是开始上网查阅资料。</p>
-<hr>
-<h2 id="资料的收集"><a href="#资料的收集" class="headerlink" title="资料的收集"></a>资料的收集</h2><p>查阅了一下官方的文档，发现一个叫ssh2的函数比较适合</p>
-<blockquote>
-<p>Bindings to the libssh2 library which provide access to resources (shell, remote exec, tunneling, file transfer) on a remote machine using a secure cryptographic transport.</p>
-</blockquote>
-<p>这里放一下PHP的官方文档的网址—&gt;<a href="https://www.php.net/manual/zh/intro.ssh2.php" target="_blank" rel="noopener">Secure Shell2</a> </p>
-<hr>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>ssh2需要两个前置条件，OpenSSL和libssh2，由于我用的是MacBook Pro，这里只介绍macOS下使用这一函数的方法。</p>
-<h3 id="Homebrew的安装"><a href="#Homebrew的安装" class="headerlink" title="Homebrew的安装"></a>Homebrew的安装</h3><p>详情自己搜索或等我的另一篇博客</p>
-<h3 id="OpenSSL的安装"><a href="#OpenSSL的安装" class="headerlink" title="OpenSSL的安装"></a>OpenSSL的安装</h3><p>理论上讲macOS X自带有OpenSSL，但是OpenSSL被曝出过有严重的安全漏洞，详情可自行查询OpenSSL的”心脏出血（Heartbleed）”事件，简单的说就是使用OpenSSL可能被黑客攻击抓取铜壶电脑上的内存数据。</p>
-<p>所以macOS X自10.11 EI Capitan起，将原来的OpenSSL替换成了现在的LibreSSL，这对于我的这个项目其实没有什么影响。</p>
-<p><code>$ openssl version</code></p>
-<p>这段代码可以查看openssl的版本，我显示的是LibreSSL 2.6.5</p>
-<h3 id="libssh2的安装"><a href="#libssh2的安装" class="headerlink" title="libssh2的安装"></a>libssh2的安装</h3><p><code>$ brew install libssh2</code></p>
-<p>不得不说homebrew确实很方便，不过安装的过程可能会卡在<code>Updating Homebrew...</code>上，遇到这种情况可以用一次^C来停止更新，但是着只能解决这一次的困境。一劳永逸的办法是挂代理或者是改镜像库，可以改到清华等地的库中。</p>
-<p>如果没有homebrew也没有关系，可以直接将文件下载到本地，然后通过</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> tar -zxvf libssh2-....tar.gz</span><br><span class="line"><span class="meta">$</span> cd libssh2-...</span><br><span class="line"><span class="meta">$</span> ./configure --prefix=/usr/local/libssh2</span><br><span class="line"><span class="meta">$</span> make</span><br><span class="line"><span class="meta">$</span> make test</span><br><span class="line"><span class="meta">$</span> make install</span><br></pre></td></tr></table></figure>
-
-<p>这种方法来安装，但是我并没有尝试过（笑）</p>
-<h3 id="安装pecl"><a href="#安装pecl" class="headerlink" title="安装pecl"></a>安装pecl</h3><p>官方文档有所有系统的具体安装方法，这里只翻译Mac OS X版的</p>
-<p>顺便给一个官方的地址—&gt;<a href="https://pear.php.net/manual/en/installation.getting.php" target="_blank" rel="noopener">Getting and installing the PEAR package manager</a></p>
-<ol>
-<li><p>下载pear`</p>
-<p><code>$ curl -O https://pear.php.net/go-pear.phar</code></p>
-</li>
-<li><p>安装pear</p>
-<p><code>$ php -d detect_unicode=0 go-pear.phar</code></p>
-</li>
-<li><p>进入安装</p>
-<ol>
-<li><p>首先你需要更改安装路径</p>
-<p>输入数字1，然后回车</p>
-<p>输入 /usr/local/pear</p>
-<p>然后回车</p>
-</li>
-<li><p>然后你需要更改二进制路径</p>
-<p>输入数字4，然后回车</p>
-<p>输入 /usr/local/bin</p>
-<p>然后回车</p>
-</li>
-</ol>
-</li>
-<li><p>如果两项内容你都已经更改完成，那就一直回车直到安装完成</p>
-</li>
-<li><p>可以通过<code>$ pear version</code>来判断是否安装成功</p>
-</li>
-</ol>
-<h3 id="安装ssh2"><a href="#安装ssh2" class="headerlink" title="安装ssh2"></a>安装ssh2</h3><p><del>终于是回到了主线剧情（笑）</del></p>
-<p>忙活了一圈，终于开始安装真正要使用到的内容了</p>
-<p><code>$ pecl install ssh2</code></p>
-<p>默认情况下pecl的命令不会安装标记为<em>alpha</em>和<em>beta</em>状态的包。如果没有<em>stable</em>的包可以用的话，也可以用一下命令下载一个<em>beta</em>包：</p>
-<p><code>$ pecl install ssh2-beta</code></p>
-<p>也可以制定一个版本来安装：</p>
-<p><code>$ pecl install ssh2-1.1.2</code></p>
-<p>接下来也是这个教程最麻烦的地方，因为第一次安装可能会遇到很多的错误，都是phpize的原因，当然非第一次安装可以直接跳转—&gt;</p>
-<p>我安装的时候遇到了两个错误</p>
-<h4 id="第一个错误"><a href="#第一个错误" class="headerlink" title="第一个错误"></a>第一个错误</h4><blockquote>
-<p>grep: /usr/include/php/main/php.h: No such file or directory<br>grep: /usr/include/php/Zend/zend_modules.h: No such file or directory<br>grep: /usr/include/php/Zend/zend_extensions.h: No such file or directory<br>Configuring for:<br>PHP Api Version:<br>Zend Module Api No:<br>Zend Extension Api No:</p>
-</blockquote>
-<p>这个问题的解决方法如下：</p>
-<p><code>$ sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.*你的版本号*.sdk /usr/include</code></p>
-<p>但是这也会遇到一个问题：</p>
-<p><code>ln: /usr/include: Operation not permitted</code></p>
-<p>这和有没有加sudo无关，这是因为苹果在OS X 10.11中引入的SIP特性使得即使加了sudo（也就是具有root权限）也无法修改系统级的目录</p>
-<p>两个解决办法</p>
-<ol>
-<li><p><code>$ xcode-select —install</code>这会自动帮你配置好Unix开发环境，但是我安装了也没有用。。。很难过，等我懂了为什么会再来更新的</p>
-</li>
-<li><p>暂时停用系统的保护</p>
-<p>重新启动机器，开机时按住<em>command+R</em>，出现苹果的标志和进度条后松手</p>
-<p>有窗口后选择”实用工具”里的”终端”，输入：</p>
-<p><code>$ csrutil disable</code></p>
-<p>回车并重启电脑</p>
-<p><code>$ csrutil status</code>若是返回System Integrity Protection status: disabled.说明系统保护被停用了，这时就可以执行之前的那条命令</p>
-<p>但是一定要记得把系统保护开回来，不然手贱就。。。</p>
-</li>
-</ol>
-<h4 id="第二个错误"><a href="#第二个错误" class="headerlink" title="第二个错误"></a>第二个错误</h4><blockquote>
-<p>Cannot find autoconf. Please check your autoconf installation and the $PHP_AUTOCONF environment variable. Then, rerun this script. </p>
-</blockquote>
-<p><code>$ brew install autoconf</code></p>
-<p>不得不再说一次homebrew真好用</p>
-<p>其实下载文件到本地也能配置</p>
-<p>两个错误解决完成就能正常安装了</p>
-<hr>
-<h2 id="ssh2的使用"><a href="#ssh2的使用" class="headerlink" title="ssh2的使用"></a>ssh2的使用</h2><p>所有的函数官方文档里都有用法以及示例—&gt;<a href="https://www.php.net/manual/zh/book.ssh2.php" target="_blank" rel="noopener">Secure Shell</a></p>
-<p>有兴趣自己看</p>
-<p>我只需要上传即可，所以只用到了<a href="https://www.php.net/manual/zh/function.ssh2-scp-send.php" target="_blank" rel="noopener">ssh2_scp_send</a> — Send a file via SCP</p>
-<p>用法也是非常简单</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$connection = ssh2_connect(<span class="string">'shell.example.com'</span>, <span class="number">22</span>);</span><br><span class="line">ssh2_auth_password($connection, <span class="string">'username'</span>, <span class="string">'password'</span>);</span><br><span class="line"></span><br><span class="line">ssh2_scp_send($connection, <span class="string">'/local/filename'</span>, <span class="string">'/remote/filename'</span>, <span class="number">0644</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>不过我还是在路径那块浪费了很多时间。。。</p>
-<p>可能还要把local端的读写权限改一下。。。</p>
-<p>就这样</p>
-
-      
-    </div> -->
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
