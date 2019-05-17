@@ -175,6 +175,7 @@
 <p>不得不说homebrew确实很方便，不过安装的过程可能会卡在<code>Updating Homebrew...</code>上，遇到这种情况可以用一次^C来停止更新，但是着只能解决这一次的困境。一劳永逸的办法是挂代理或者是改镜像库，可以改到清华等地的库中。</p>
 <p>如果没有homebrew也没有关系，可以直接将文件下载到本地，然后通过</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> tar -zxvf libssh2-....tar.gz</span><br><span class="line"><span class="meta">$</span> cd libssh2-...</span><br><span class="line"><span class="meta">$</span> ./configure --prefix=/usr/local/libssh2</span><br><span class="line"><span class="meta">$</span> make</span><br><span class="line"><span class="meta">$</span> make test</span><br><span class="line"><span class="meta">$</span> make install</span><br></pre></td></tr></table></figure>
+
 <p>这种方法来安装，但是我并没有尝试过（笑）</p>
 <h3 id="安装pecl"><a href="#安装pecl" class="headerlink" title="安装pecl"></a>安装pecl</h3><p>官方文档有所有系统的具体安装方法，这里只翻译Mac OS X版的</p>
 <p>顺便给一个官方的地址—&gt;<a href="https://pear.php.net/manual/en/installation.getting.php" target="_blank" rel="noopener">Getting and installing the PEAR package manager</a></p>
@@ -247,6 +248,7 @@
 <p>我只需要上传即可，所以只用到了<a href="https://www.php.net/manual/zh/function.ssh2-scp-send.php" target="_blank" rel="noopener">ssh2_scp_send</a> — Send a file via SCP</p>
 <p>用法也是非常简单</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$connection = ssh2_connect(<span class="string">'shell.example.com'</span>, <span class="number">22</span>);</span><br><span class="line">ssh2_auth_password($connection, <span class="string">'username'</span>, <span class="string">'password'</span>);</span><br><span class="line"></span><br><span class="line">ssh2_scp_send($connection, <span class="string">'/local/filename'</span>, <span class="string">'/remote/filename'</span>, <span class="number">0644</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>不过我还是在路径那块浪费了很多时间。。。</p>
 <p>可能还要把local端的读写权限改一下。。。</p>
 <p>就这样</p>
